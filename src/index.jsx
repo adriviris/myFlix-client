@@ -1,7 +1,7 @@
 import { createRoot } from 'react-dom/client';
 
 //IMPORT STATEMENT TO INDICATE THAT YOU NEED TO BUNDLE './INDEX.SCSS'
-import ".index.scss";
+import "./index.scss";
 
 //MAIN COMPONENT (WILL EVENTUALLY USE ALL THE OTHERS)
 const MyFlixApplication = () => {
