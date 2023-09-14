@@ -1,5 +1,5 @@
 import { createRoot } from 'react-dom/client';
-
+import { MainView } from "../src/components/main-view/main-view";
 //IMPORT STATEMENT TO INDICATE THAT YOU NEED TO BUNDLE './INDEX.SCSS'
 import "./index.scss";
 
@@ -7,7 +7,7 @@ import "./index.scss";
 const MyFlixApplication = () => {
     return (
         <div className="my-flix">
-            <div>Good morning</div>
+            < MainView />
         </div>
     );
 };
