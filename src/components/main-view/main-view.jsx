@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
+import { LoginView } from "../login-view/login-view";
 
 export const MainView = () => {
 
@@ -34,7 +35,8 @@ export const MainView = () => {
             console.log("movies from api:", data);
             setMovies(data);
         });
-    }, []);
+    },[]); 
+    //[token]);
 
     const [selectedMovie, setSelectedMovie] = useState(null);
 
