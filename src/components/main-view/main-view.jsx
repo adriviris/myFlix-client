@@ -8,6 +8,7 @@ export const MainView = () => {
     const [movies, setMovies] = useState ([]);
     const [selectedMovie, setSelectedMovie] = useState(null);
     const [user, setUser] = useState(null);
+    const [token, setToken] = useState(null);
 
     useEffect(() => {
         fetch("https://gentle-reef-72252-e820382973dd.herokuapp.com/movies", {
@@ -15,14 +16,21 @@ export const MainView = () => {
         })
         .then((response) => response.json())
         .then((data) => {
-            console.log("movies from api:", data);
+            console.log(/*"movies from api:",*/ data);
             setMovies(data);
         });
     },[token]);
 
     if (!user) {
-        return <LoginView onLoggedIn={(user) => setUser(user)} />;
-    }
+        return (
+        <LoginView
+        onLoggedIn={(user, token) => {
+            setUser(user);
+            setToken(token);
+            }}
+            />
+            );
+        }
 
     if (selectedMovie) {
     return <MovieView movie={selectedMovie} onBackClick={() => setSelectedMovie(null)} />;
@@ -34,13 +42,14 @@ export const MainView = () => {
 
 return (
     <div>
-    <button
-        onClick={() => {
-        setUser(null);
-        }}
-    >
+<button 
+onClick={() => { 
+    setUser(null); 
+    setToken(null); 
+    }}>
         Logout
-    </button>
+        </button>
+        
     {movies.map((movie) => (
         < MovieCard 
         key={movie._id} 
