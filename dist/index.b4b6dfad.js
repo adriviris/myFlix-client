@@ -28457,7 +28457,7 @@ const SignupView = ()=>{
     const handleSubmit = (event)=>{
         event.preventDefault();
         const data = {
-            Username: username,
+            UserName: username,
             Password: password,
             Email: email,
             Birthday: birthday
