@@ -13,7 +13,7 @@ export const LoginView = ({ onLoggedIn }) => {
         secret: password
     };
 
-    fetch("https://gentle-reef-72252-e820382973dd.herokuapp.com/movies", {
+    fetch("https://gentle-reef-72252-e820382973dd.herokuapp.com/login", {
         method: "POST",
         body: JSON.stringify(data)
     }).then((response) => response.json())
