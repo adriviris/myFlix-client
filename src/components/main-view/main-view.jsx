@@ -15,7 +15,7 @@ export const MainView = () => {
     useEffect(() => {
         if (!token) return;
         fetch("https://gentle-reef-72252-e820382973dd.herokuapp.com/movies", {
-            headers: {'Authorization': "Bearer ${token}" }
+            headers: {'Authorization': `Bearer ${token}` }
         })
         .then((response) => response.json())
         .then((data) => {

@@ -27331,7 +27331,7 @@ const MainView = ()=>{
         if (!token) return;
         fetch("https://gentle-reef-72252-e820382973dd.herokuapp.com/movies", {
             headers: {
-                "Authorization": "Bearer ${token}"
+                "Authorization": `Bearer ${token}`
             }
         }).then((response)=>response.json()).then((data)=>{
             console.log(/*"movies from api:",*/ data);
@@ -28352,10 +28352,10 @@ const LoginView = ({ onLoggedIn })=>{
         // this prevents the default behavior of the form which is to reload the entire page
         event.preventDefault();
         const data = {
-            access: username,
-            secret: password
+            UserName: username,
+            Password: password
         };
-        fetch("https://gentle-reef-72252-e820382973dd.herokuapp.com/login", {
+        fetch(`https://gentle-reef-72252-e820382973dd.herokuapp.com/login?UserName=${username}&Password=${password}`, {
             method: "POST",
             body: JSON.stringify(data)
         }).then((response)=>response.json()).then((data)=>{

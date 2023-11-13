@@ -9,11 +9,11 @@ export const LoginView = ({ onLoggedIn }) => {
     event.preventDefault();
 
     const data = { 
-        access: username,
-        secret: password
+        UserName: username,
+        Password: password
     };
 
-    fetch("https://gentle-reef-72252-e820382973dd.herokuapp.com/login", {
+    fetch(`https://gentle-reef-72252-e820382973dd.herokuapp.com/login?UserName=${username}&Password=${password}`, {
         method: "POST",
         body: JSON.stringify(data)
     }).then((response) => response.json())
