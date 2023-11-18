@@ -2,6 +2,7 @@ import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
+
 export const LoginView = ({ onLoggedIn }) => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
@@ -55,7 +56,9 @@ return (
         required
         />
     </Form.Group>
-    <Button variant="primary" type="submit">
+    <Button 
+    variant="primary" 
+    type="submit">
         Submit
         </Button>
         </Form>
