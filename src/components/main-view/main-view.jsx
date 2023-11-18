@@ -60,7 +60,7 @@ export const MainView = () => {
         <>
         <button onClick={handleLogout}>Logout</button>
         {movies.map((movie) => (
-        <Col key={movie.id} md={3}>
+        <Col className="mb-5" key={movie.id} md={3}>
         <MovieCard
         key={movie._id}
         movie={movie}
