@@ -8,12 +8,10 @@ import "./index.scss";
 //MAIN COMPONENT (WILL EVENTUALLY USE ALL THE OTHERS)
 const MyFlixApplication = () => {
     return (
-        
-            <Container>
+            <Container style={{border: "1px solid red"}}>
                 <div className="my-flix"></div>
                 <MainView />
                 </Container>
-        
     );
 };
 
