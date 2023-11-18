@@ -1,5 +1,6 @@
 import { createRoot } from 'react-dom/client';
 import { MainView } from "../src/components/main-view/main-view";
+import "bootstrap/dist/css/bootstrap.min.css";
 //IMPORT STATEMENT TO INDICATE THAT YOU NEED TO BUNDLE './INDEX.SCSS'
 import "./index.scss";
 

@@ -1,4 +1,6 @@
 import{ useState } from "react";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
 
 export const SignupView = () => {
     const [username, setUsername] = useState("");
@@ -34,7 +36,7 @@ export const SignupView = () => {
 
     return (
     <Form onSubmit={handleSubmit}>
-        <Form.Group controlId="formUsername">
+        <Form.Group controlId="formUserName">
         <Form.Label>Username:</Form.Label>
         <Form.Control
         type="text"
