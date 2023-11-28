@@ -1,10 +1,13 @@
 import './movie-view.scss'
+import { useNavigate } from 'react-router-dom';
 
 export const MovieView = ({ movie, onBackClick }) => {
+    const navigate = useNavigate();
+    const imageUrl = location.href.split("/movie") [0] + "/" +movie.ImagePath;
     return (
     <div>
         <div>
-        <img src={movie.ImagePath} width="100%"/>
+        <img src={imageUrl} width="100%"/>
         </div>
         <div>
             <span>Title: </span><span>{movie.Title}</span>
@@ -13,7 +16,7 @@ export const MovieView = ({ movie, onBackClick }) => {
             <span>Director: </span><span>{movie.Director.Name}</span>
             </div>
             <button 
-            onClick={onBackClick}
+            onClick={() => navigate(-1)}
             className="back-button"
             style={{ cursor: "pointer"}}
             >
