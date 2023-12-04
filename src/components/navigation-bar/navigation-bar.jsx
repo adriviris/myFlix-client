@@ -1,20 +1,22 @@
-import { createRoot } from "react-dom/client";
+import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
-import { MainView } from "../main-view/main-view";
-import Container from "react-bootstrap/Container";
-
-import "bootstrap/dist/css/bootstrap.min.css";
-
-import "../../index.scss";
-
-const App = () => {
+export const NavigationBar = ({ user, onLoggedOut }) => {
     return (
-    <Container>
-        <MainView />
-        </Container>
-        );
-    };
-
-const container = document.querySelector("#root");
-const root = createRoot(container);
-root.render(<App />);
+    <Navbar bg="light" expand="lg">
+        <Container>
+            <Navbar.Brand as={Link} to="/">
+                My Flix App
+                </Navbar.Brand>
+                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                <Navbar.Collapse id="basic-navbar-nav">
+                    <Nav className="navbar">{/* Add Links here */}</Nav>
+            <Nav.Link href="#home">Home</Nav.Link>
+            <Nav.Link href="/signup">Sign up</Nav.Link>
+            <Nav.Link href="/login">Log in</Nav.Link>
+            <NavDropdown title="Dropdown" className= "nav-link" id="basic-nav-dropdown"></NavDropdown>
+                    </Navbar.Collapse>
+                    </Container>
+                    </Navbar>
+                    );
+                };
