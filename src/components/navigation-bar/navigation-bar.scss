@@ -1,0 +1,28 @@
+// NavigationBar.scss
+@import "~bootstrap/scss/bootstrap";
+
+.navbar {
+background-color: #EE4E34; // Set background color
+}
+
+.navbar-brand {
+color: #333333; // Set brand text color
+&:hover {
+color: #555555; // Change brand text color on hover
+}
+}
+
+.navbar-nav .nav-link {
+
+color: #333333; // Set link text color
+&:hover {
+color: #EE4E34; // Change link text color on hover
+}
+}
+
+
+.navbar-toggler-icon {
+// Customize the navbar toggler icon if needed
+}
+a {padding: 20px}
+// Add more styles as needed
