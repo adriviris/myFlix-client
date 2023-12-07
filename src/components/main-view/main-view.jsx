@@ -45,10 +45,20 @@ export const MainView = () => {
         fetch("https://gentle-reef-72252-e820382973dd.herokuapp.com/movies", {
             headers: { Authorization: `Bearer ${token}` },
         })
+<<<<<<< Updated upstream
         .then(response => response.json())
         .then(data => setMovies(data));
     }, [token]);
 
+=======
+        .then((response) => response.json())
+        .then((data) => {
+            console.log(/*"movies from api:",*/ data);
+            setMovies(data);
+        });
+    }, [token, movies]);
+    
+>>>>>>> Stashed changes
     const handleLogin = (loggedInUser, loggedInToken) => {
         setUser(loggedInUser);
         setToken(loggedInToken);
@@ -63,6 +73,7 @@ export const MainView = () => {
     };
 
     return (
+<<<<<<< Updated upstream
         <BrowserRouter>
             <NavigationBar user={user} onLoggedOut={handleLogout} />
             <Row className="justify-content-md-center">
@@ -76,5 +87,167 @@ export const MainView = () => {
             </Row>
         </BrowserRouter>
     );
+=======
+
+    <BrowserRouter>
+
+    <NavigationBar 
+    user={user}
+    onLoggedOut={() => {
+        setUser(null);
+    }}
+    />
+    
+    <Row className="justify-content-md-center">
+        {/* <Routes>
+            <Route
+            path="/signup"
+            element={
+            <>
+            {user ? (
+            <Navigate to="/" />
+            ) : (
+            <Col md={5}>
+                <SignupView />
+                </Col>
+                )}
+                </>
+                }
+                />
+                <Route
+                path="/login"
+            element={
+            <>
+                {user ? (
+                <Navigate to="/" />
+                ) : (
+                <Col md={5}>
+                    <LoginView 
+                    onLoggedIn={(user, token) => 
+                        handleLogin(user, token)}
+                    />
+                </Col>
+                )}
+            </>
+            }
+        />
+        <Route
+            path="/movies/:movieId"
+            element={
+            <>
+                {!user ? (
+                <Navigate to="/login" replace />
+                ) : movies.length === 0 ? (
+                <Col>The list is empty!</Col>
+                ) : (
+                <Col md={8}>
+                    <MovieView movie={selectedMovie} />
+                </Col>
+                )}
+            </>
+            }
+        />
+                  <Route
+            path="/profile"
+            element={
+              <>
+                {!user ? (
+                  <Navigate to="/login" replace />
+                ) : (
+                  <Col md={8}>
+                    <ProfileView user={user} />
+                  </Col>
+                )}
+              </>
+            }
+          />
+        <Route
+            path="/"
+            element={
+            <>
+                {!user ? (
+                <Navigate to="/login" replace />
+                ) : movies.length === 0 ? (
+                <Col>The list is empty!</Col>
+                ) : (
+                <>
+                    {movies.map((movie) => (
+                    <Col className="mb-4" key={movie.id} md={3}>
+                        <MovieCard
+                        movie={movie}
+                        onMovieClick={(movie) => 
+                        setSelectedMovie(movie)}
+                        />
+                    </Col>
+                    ))}
+                </>
+                )}
+            </>
+            }
+        />
+        </Routes> */}
+
+        <Routes>
+        <Route
+            path="/"
+            element={
+        
+                <>
+                    {movies.map((movie) => (
+                    <Col className="mb-4" key={movie.id} md={3}>
+                        <MovieCard
+                        movie={movie}
+                        onMovieClick={(movie) => 
+                        setSelectedMovie(movie)}
+                        />
+                    </Col>
+                    ))}
+                </>
+            }
+        />
+
+<Route
+            path="/login"
+            element={
+                <>
+                {user ? (
+                <Navigate to="/" />
+                ) : (
+                <Col md={5}>
+                    <LoginView 
+                    onLoggedIn={(user, token) => 
+                        handleLogin(user, token)}
+                    />
+                </Col>
+                )}
+            </>
+            }
+        />
+
+<Route
+            path="/signup"
+            element={
+              <SignupView/>
+            }
+        />
+
+<Route
+            path="/profile"
+            element={
+              <>
+                
+                  <Col md={8}>
+                    <ProfileView user={user} />
+                  </Col>
+               
+              </>
+            }
+          />
+
+        </Routes>
+    </Row>
+    </BrowserRouter>
+);
+>>>>>>> Stashed changes
 };
 
