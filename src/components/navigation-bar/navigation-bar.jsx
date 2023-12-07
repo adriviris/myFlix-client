@@ -1,7 +1,7 @@
 import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-export const NavigationBar = ({ user, onLoggedOut }) => {
+export const NavigationBar = ({ user, onLoggedOut, onUnregister }) => {
     return (
     <Navbar bg="light" expand="lg">
         <Container>
@@ -14,9 +14,12 @@ export const NavigationBar = ({ user, onLoggedOut }) => {
             <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="/signup">Sign up</Nav.Link>
             <Nav.Link href="/login">Log in</Nav.Link>
+            <Nav.Link href="/profile">Profile</Nav.Link>
             <NavDropdown title="Dropdown" className= "nav-link" id="basic-nav-dropdown">
                 <Nav.Link onClick={onLoggedOut}>Log out</Nav.Link>
+                <Nav.Link onClick={onUnregister}>Unregister</Nav.Link>
             </NavDropdown>
+            
                     </Navbar.Collapse>
                     </Container>
                     </Navbar>
