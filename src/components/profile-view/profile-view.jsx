@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { MovieCard } from "../movie-card/movie-card";
 
-export const ProfileView = () => {
+export const ProfileView = ({movies}) => {
     const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')));
     console.log(user)
     return (
@@ -15,7 +15,8 @@ export const ProfileView = () => {
       {/* Display favorite movies using MovieCard */}
     <div className="favorite-movies">
         {user.FavoriteMovies && user.FavoriteMovies.length > 0 ? (
-            user.FavoriteMovies.map((movie) => (
+            movies.filter(x => user.FavoriteMovies.includes(x._id))
+            .map((movie) => (
             <MovieCard
             key={movie.id}
             movie={movie}
