@@ -47982,8 +47982,8 @@ var _s = $RefreshSig$();
 const MovieCard = ({ movie, onMovieClick })=>{
     _s();
     const [isFavorite, setIsFavorite] = (0, _react.useState)(false);
+    const storedUser = JSON.parse(localStorage.getItem("user"));
     const handleToggleFavorite = ()=>{
-        const storedUser = JSON.parse(localStorage.getItem("user"));
         fetch(`https://gentle-reef-72252-e820382973dd.herokuapp.com/users/${storedUser.UserName}/movies/${movie._id}`, {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem("token")}`
@@ -47993,8 +47993,12 @@ const MovieCard = ({ movie, onMovieClick })=>{
             localStorage.setItem("user", JSON.stringify(data));
             console.log(data);
         });
-        setIsFavorite(!isFavorite);
+    // 
     };
+    if (storedUser.FavoriteMovies && storedUser.FavoriteMovies.length > 0) {
+        let y = storedUser.FavoriteMovies.find((x)=>x == movie._id);
+    //    if (y) setIsFavorite(false);
+    }
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card), {
         className: "h-100",
         children: [
@@ -48003,7 +48007,7 @@ const MovieCard = ({ movie, onMovieClick })=>{
                 src: movie.ImagePath
             }, void 0, false, {
                 fileName: "src/components/movie-card/movie-card.jsx",
-                lineNumber: 30,
+                lineNumber: 36,
                 columnNumber: 5
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Body, {
@@ -48012,7 +48016,7 @@ const MovieCard = ({ movie, onMovieClick })=>{
                         children: movie.title
                     }, void 0, false, {
                         fileName: "src/components/movie-card/movie-card.jsx",
-                        lineNumber: 32,
+                        lineNumber: 38,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
@@ -48027,12 +48031,12 @@ const MovieCard = ({ movie, onMovieClick })=>{
                             children: "Open"
                         }, void 0, false, {
                             fileName: "src/components/movie-card/movie-card.jsx",
-                            lineNumber: 34,
+                            lineNumber: 40,
                             columnNumber: 9
                         }, undefined)
                     }, void 0, false, {
                         fileName: "src/components/movie-card/movie-card.jsx",
-                        lineNumber: 33,
+                        lineNumber: 39,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
@@ -48046,19 +48050,19 @@ const MovieCard = ({ movie, onMovieClick })=>{
                         children: isFavorite ? "Remove from Favorites" : "Add to Favorites"
                     }, void 0, false, {
                         fileName: "src/components/movie-card/movie-card.jsx",
-                        lineNumber: 45,
+                        lineNumber: 51,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/movie-card/movie-card.jsx",
-                lineNumber: 31,
+                lineNumber: 37,
                 columnNumber: 5
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/movie-card/movie-card.jsx",
-        lineNumber: 29,
+        lineNumber: 35,
         columnNumber: 5
     }, undefined);
 };

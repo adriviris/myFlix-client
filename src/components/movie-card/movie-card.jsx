@@ -7,9 +7,8 @@ import './movie-card.scss'
 
 export const MovieCard = ({ movie, onMovieClick }) => {
     const [isFavorite, setIsFavorite] = useState(false);
-    
-    const handleToggleFavorite = () => {
     const storedUser = JSON.parse(localStorage.getItem("user"));
+    const handleToggleFavorite = () => {
     fetch(`https://gentle-reef-72252-e820382973dd.herokuapp.com/users/${storedUser.UserName}/movies/${movie._id}`, {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
         method: "POST",
@@ -20,10 +19,17 @@ export const MovieCard = ({ movie, onMovieClick }) => {
         console.log(data);
     })
 
-    setIsFavorite(!isFavorite);
- 
+    // 
        
 };
+
+if (storedUser.FavoriteMovies && storedUser.FavoriteMovies.length > 0){
+    let y = storedUser.FavoriteMovies.find(x => x == movie._id)
+//    if (y) setIsFavorite(false);
+} 
+    
+
+
 
 return (
     <Card className="h-100">
