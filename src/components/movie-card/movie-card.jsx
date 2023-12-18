@@ -28,6 +28,20 @@ export const MovieCard = ({ movie, onMovieClick }) => {
         .catch(error => console.error('Error:', error));
     };
 
+    const handleTogglerRemoveFavorite = () => {
+        fetch(`https://gentle-reef-72252-e820382973dd.herokuapp.com/users/${storedUser.UserName}/movies/${movie._id}`, {
+            headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
+            method: "DELETE",
+        })
+        .then(response => response.json())
+        .then(data => {
+            localStorage.setItem("user", JSON.stringify(data));
+            setIsFavorite(!isFavorite);
+            location.reload();
+        })
+        .catch(error => console.error('Error:', error));
+    };
+
     return (
         <Card className="h-100">
             <Card.Img variant="top" src={movie.ImagePath} />
@@ -46,7 +60,7 @@ export const MovieCard = ({ movie, onMovieClick }) => {
 
                 <Button
                     variant={isFavorite ? "danger" : "success"}
-                    onClick={handleToggleFavorite}
+                    onClick={isFavorite ? handleTogglerRemoveFavorite : handleToggleFavorite}
                     className="card-button"
                     style={{ cursor: "pointer", marginTop: "10px" }}
                 >
