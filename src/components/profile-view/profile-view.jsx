@@ -10,7 +10,7 @@ export const ProfileView = ({movies}) => {
 
     const updateUser = (e) => {
         e.preventDefault();
-        fetch(`https://gentle-reef-72252-e820382973dd.herokuapp.com/users/${user.UserName}`, { 
+        fetch(`https://myflixmyflix.netlify.app/users/${user.UserName}`, { 
             method: "PUT",
             body: JSON.stringify({
                 Password: password,
