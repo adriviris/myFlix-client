@@ -70,7 +70,7 @@ export const MainView = () => {
                     <Route path="/" element={user ? <MovieList movies={movies} setSelectedMovie={setSelectedMovie} /> : <Navigate to="/login" replace />} />
                     <Route path="/login" element={!user ? <LoginView onLoggedIn={handleLogin} /> : <Navigate to="/" replace />} />
                     <Route path="/signup" element={!user ? <SignupView /> : <Navigate to="/" replace />} />
-                    <Route path="/profile" element={user ? <ProfileView user={user} /> : <Navigate to="/login" replace />} />
+                    <Route path="/profile" element={user ? <ProfileView user={user} movies={movies} /> : <Navigate to="/login" replace />} />
                     <Route path="/movies/:movieId" element={user ? <MovieView movie={selectedMovie} /> : <Navigate to="/login" replace />} />
                 </Routes>
             </Row>
