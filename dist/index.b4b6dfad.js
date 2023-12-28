@@ -48529,7 +48529,7 @@ const ProfileView = ({ movies })=>{
     console.log(email);
     const updateUser = (e)=>{
         e.preventDefault();
-        fetch(`https://myflixmyflix.netlify.app/users/${user.UserName}`, {
+        fetch(`https://gentle-reef-72252-e820382973dd.herokuapp.com/users/${user.UserName}`, {
             method: "PUT",
             body: JSON.stringify({
                 Password: password,
